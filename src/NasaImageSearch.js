@@ -150,7 +150,12 @@ export class NasaImageSearch extends LitElement {
             },
           })
         );
-      } else if (propName === 'page' && this.searchTerm) {
+      } else if (
+        (propName === 'page' ||
+          propName === 'startYear' ||
+          propName === 'endYear') &&
+        this.searchTerm
+      ) {
         this.getData();
       }
     });
