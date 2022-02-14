@@ -158,6 +158,13 @@ export class NasaImageSearch extends LitElement {
             },
           })
         );
+      } else if (
+        (propName === 'page' ||
+          propName === 'startYear' ||
+          propName === 'endYear') &&
+        this.searchTerm
+      ) {
+        this.getData();
       }
     });
   }
@@ -354,21 +361,6 @@ export class NasaImageSearch extends LitElement {
               `
             )}
           `}
-      <script>
-        var searchField = this.shadowRoot.querySelector(#searchTerm)
-
-        searchField.addEventListener("keyup", function(event) {
-          console.log("some event")
-          // Number 13 is the "Enter" key on the keyboard
-          if (event.keyCode === 13) {
-            // Cancel the default action, if needed
-            event.preventDefault();
-            // Trigger the button element with a click
-            this.shadowRoot.querySelector(".button2").click();
-            console.log("enter enter enter")
-          }
-        });
-      </script>
     `;
   }
 }
